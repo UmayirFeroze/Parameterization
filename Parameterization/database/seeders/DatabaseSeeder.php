@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            InputTypeSeeder::class, ParameterSeeder::class,
+            InputTypeSeeder::class, ParameterSeeder::class, ParameterItemsGroupSeeder::class,
         ]);
     }
 }

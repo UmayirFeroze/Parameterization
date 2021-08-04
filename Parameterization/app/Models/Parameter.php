@@ -11,4 +11,7 @@ class Parameter extends Model
 
     protected $fillable = ['name', 'type'];
     
+    public function ParameterItemsGroup(){
+        return $this->hasMany(ParameterItemsGroup::class, 'parameter_id', 'id');
+    }
 }
