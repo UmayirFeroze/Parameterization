@@ -13,5 +13,7 @@ class InputType extends Model
 
     public static $rules = array();
 
-
+    public function Values(){
+        return $this->hasMany(Value::class, 'input_type_id', 'id');
+    }
 }
