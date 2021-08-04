@@ -14,4 +14,8 @@ class Parameter extends Model
     public function ParameterItemsGroup(){
         return $this->hasMany(ParameterItemsGroup::class, 'parameter_id', 'id');
     }
+
+    public function Dropdowns(){
+        return $this->hasManyThrough(Dropdown::class,ParameterItemGroup::class,'parameter_id','parameter_item_group_id','id','id');
+    }
 }
