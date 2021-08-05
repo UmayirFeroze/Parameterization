@@ -9,7 +9,7 @@ class Dropdown extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['parameter_item_group_id', 'name', 'default', 'disabled', 'deleted'];
+    protected $fillable = ['parameter_items_group_id', 'name', 'default', 'disabled', 'deleted'];
 
     public function ParameterItemsGroup(){
         return $this->belongsTo(ParameterItemsGroup::class);
