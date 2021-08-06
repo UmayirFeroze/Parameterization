@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Dropdown;
 use Illuminate\Http\Request;
 
 use App\Models\Parameter;
-use App\Models\ParameterItemsGroup;
+use App\Models\Value;
+use GrahamCampbell\ResultType\Success;
 
 class ParameterController extends Controller
 {
@@ -30,6 +31,7 @@ class ParameterController extends Controller
         try {
             // Get all Parameters for List View
             $parameters = Parameter::all();
+            // dd(csrf_token());
             return $parameters;
         } catch (\Exception $error) {
             // return error
@@ -72,12 +74,42 @@ class ParameterController extends Controller
     
     public function updateDropdown(Request $request, $id){
         // update request parameters
-        
+        $requests = $request->request->all();
+        // The request should be in the following format [{id: 1, parameter_items_group_id: 1, name: 'dropdownItem', default: true, disabled: false, deleted: false}] 
+        try {
+            DB::transaction(function () use ($requests){
+                foreach ($requests as $key => $request) {   
+                    try {
+                            $result = DB::table('dropdowns')->where('id',$request['id'])->update([
+                                'parameter_items_group_id'=> $request['parameter_items_group_id'],
+                                'name' => $request['name'],
+                                'default' => $request['default'],
+                                'disabled' => $request['disabled'],
+                                'deleted' => $request['deleted'],
+                            ]);
+                            return $result;
+                    } catch (\Exception $error) {
+                        DB::rollback();
+                        echo "Rolling Back...1";
+                        return $error;
+                    }
+                }       
+            });
+        } catch (\Exception $error) {
+            echo "Rolling Back...2";
+            DB::rollback();
+            return $error;
+        }
     }
 
-    // public function editValues(){
+    public function getValues(){
+        $parameters = Parameter::where('type','values')->with(['ParameterItemsGroup.Values'])->get(['id','name']);
+        return $parameters;
+    }
 
-    // }
+    public function editValues(){
+
+    }
 
 
 }
