@@ -40,6 +40,7 @@ class ParameterController extends Controller
 
     }
 
+    // Get route to use dropdown parameters
     public function getDropdowns(){
         try {
             // get all dropdowns
@@ -73,43 +74,90 @@ class ParameterController extends Controller
     }
     
     public function updateDropdown(Request $request, $id){
-        // update request parameters
+        // get request parameters
         $requests = $request->request->all();
-        // The request should be in the following format [{id: 1, parameter_items_group_id: 1, name: 'dropdownItem', default: true, disabled: false, deleted: false}] 
+        // IMPORTANT: The request should be in the following format [{id: 1, parameter_items_group_id: 1, name: 'dropdownItem', default: true, disabled: false, deleted: false}] 
         try {
             DB::transaction(function () use ($requests){
                 foreach ($requests as $key => $request) {   
                     try {
-                            $result = DB::table('dropdowns')->where('id',$request['id'])->update([
-                                'parameter_items_group_id'=> $request['parameter_items_group_id'],
-                                'name' => $request['name'],
-                                'default' => $request['default'],
-                                'disabled' => $request['disabled'],
-                                'deleted' => $request['deleted'],
-                            ]);
-                            return $result;
+                        DB::table('dropdowns')
+                        ->where('id',$request['id'])
+                        ->where('parameter_items_group_id',$request['parameter_items_group_id'])
+                        ->update([
+                            'parameter_items_group_id'=> $request['parameter_items_group_id'],
+                            'name' => $request['name'],
+                            'default' => $request['default'],
+                            'disabled' => $request['disabled'],
+                            'deleted' => $request['deleted'],
+                        ]);
+                            
                     } catch (\Exception $error) {
                         DB::rollback();
-                        echo "Rolling Back...1";
+                        echo "Rolling Back...";
                         return $error;
                     }
                 }       
             });
         } catch (\Exception $error) {
-            echo "Rolling Back...2";
+            echo "Rolling Back...";
             DB::rollback();
             return $error;
         }
     }
 
+    // Get route to use value parameters
     public function getValues(){
-        $parameters = Parameter::where('type','values')->with(['ParameterItemsGroup.Values'])->get(['id','name']);
-        return $parameters;
+        try {
+            $parameters = Parameter::where('type','values')->with(['Values'])->get(['id','name']);
+            return $parameters;
+        } catch (\Exception $error) {
+            throw $error;
+        }
+        
     }
 
-    public function editValues(){
+    public function editValue($id){
+        try {
+            $parameters = Parameter::with('Values.InputType')->findOrFail($id);
+            return $parameters;
+        } catch (\Exception $error) {
+            return response($error->getMessage());
+        }
+    }
+
+    public function updateValue(Request $request, $id) {
+        // get request parameters
+        $requests = $request->request->all();
+
+        // IMPORTANT: The request should be in the following format [{id: 1,parameter_items_group_id: 1,input_type_id: 2,key: "Notification Period Value",value: "3",disabled: 0, deleted: 0}] 
+
+        try {
+            DB::transaction(function () use ($requests){
+                foreach ($requests as $key => $request) {   
+                    error_log($request['value']);
+                    try {
+                        DB::table('values')
+                            ->where('id',$request['id'])
+                            ->where('parameter_items_group_id',$request['parameter_items_group_id'])
+                            ->update(['value' => $request['value']]);
+                        
+                    } catch (\Exception $error) {
+                        DB::rollback();
+                        echo "Rolling Back...";
+                        return $error->getMessage();
+                    }
+                }       
+            });
+        } catch (\Exception $error) {
+            echo "Rolling Back...";
+            DB::rollback();
+            return $error->getMessage();
+        }
 
     }
+
+    
 
 
 }
