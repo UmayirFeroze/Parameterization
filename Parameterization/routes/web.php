@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ParameterController;
+use App\Models\Parameter;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('parameters', [ParameterController::class, 'index'] )->name('parameters.index');
+Route::get('parameters/list', [ParameterController::class, 'AllParameterListView'] )->name('parameters.AllParameterListView');
+Route::get('parameters/dropdowns', [ParameterController::class, 'getDropdowns'] )->name('parameters.dropdowns');
+
+Route::get('parameters/{id}/editDropdown', [ParameterController::class, 'editDropdown'] )->name('parameters.editDropdown');
+Route::put('parameters/{id}/updateDropdown', [ParameterController::class, 'updateDropdown'])->name('parameteres.dropdown.update');
+Route::get('parameters/{id}/edit', [ParameterController::class, 'editValue'] )->name('parameters.editValue');
+// Route::put('parameters/{id}', [ParameterController::class, 'updateValue'])->name('parameteres.value.edit');
+// Route::get('parameters/{id}/edit', [ParameterController::class, 'editSelect'] )->name('parameters.editSelect');
+// Route::put('parameters/{id}', [ParameterController::class, 'updateValue'])->name('parameteres.select.edit');

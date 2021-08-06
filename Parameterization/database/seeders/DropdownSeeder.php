@@ -21,6 +21,9 @@ class DropdownSeeder extends Seeder
             2 => ["parameter_items_group_id" => 4, "name" => "Commercial Sales", "default" => false, "disabled" => false, "deleted" => false],
             3 => ["parameter_items_group_id" => 4, "name" => "House in Multiple Occupation", "default" => false, "disabled" => false, "deleted" => false],
             4 => ["parameter_items_group_id" => 4, "name" => "Commercial Lettings", "default" => false, "disabled" => false, "deleted" => false],
+            5 => ["parameter_items_group_id" => 6, "name" => "Passport", "default" => true, "disabled" => false, "deleted"=>false],
+            6 => ["parameter_items_group_id" => 6, "name" => "Visa", "default" => false, "disabled" => false, "deleted"=>false],
+            7 => ["parameter_items_group_id" => 6, "name" => "Driving License", "default" => false, "disabled" => false, "deleted"=>false],
         ];
 
         foreach ($dropdowns as $key => $value) {
