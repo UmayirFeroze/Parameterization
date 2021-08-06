@@ -16,40 +16,64 @@ class ParameterController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        // Get all parameters
-        $parameters = Parameter::all();
-        return $parameters;
+        try {
+            // Get all parameters
+            $parameters = Parameter::all();
+            return $parameters;
+        } catch (\Exception $error) {
+            // return error
+            return $error;
+        }
+
     }
 
     public function AllParameterListView(){
-        // Get all Parameters for List View
-        $parameters = Parameter::all();
-        return $parameters;
+        try {
+            // Get all Parameters for List View
+            $parameters = Parameter::all();
+            return $parameters;
+        } catch (\Exception $error) {
+            // return error
+            return $error;
+        }
+
     }
 
     public function getDropdowns(){
-        // get all dropdowns
+        try {
+            // get all dropdowns
         $parameters = Parameter::where('type','dropdown')->with(['ParameterItemsGroup.Dropdowns'])->get();
         return $parameters;
+        } catch (\Exception $error) {
+            return $error;
+        }
     }
 
     public function editDropdown($id){
-        // Parameter -> Parameter Group -> DropdownItems
-        // $parameters = Parameter::with(['ParameterItemsGroup.Dropdowns'])->get(['id','name'])->find($id);
-        
-        // Parameter Group -> Dropdown Items
-        // $parameters_group = ParameterItemsGroup::with(['Dropdowns'])->where('parameter_id',$id)->get(['id','name']);
+        try {
+            // Parameter -> Parameter Group -> DropdownItems
+            // $parameters = Parameter::with(['ParameterItemsGroup.Dropdowns'])->get(['id','name'])->find($id);
+            
+            // Parameter Group -> Dropdown Items
+            // $parameters_group = ParameterItemsGroup::with(['Dropdowns'])->where('parameter_id',$id)->get(['id','name']);
 
-        // Parameter Group <- Dropdown Items
-        $dropdownItems = Dropdown::with(['ParameterItemsGroup'])
-            ->whereHas('ParameterItemsGroup', function($query) use($id){
-                $query->where('parameter_id',$id);
-        })->get();
-        return $dropdownItems;
+            // Parameter Group <- Dropdown Items
+            $dropdownItems = Dropdown::with(['ParameterItemsGroup'])
+                ->whereHas('ParameterItemsGroup', function($query) use($id){
+                    $query->where('parameter_id',$id);
+                })->get();
+                
+            return $dropdownItems;
+        } catch (\Exeception $error) {
+            // return error
+            return $error;
+        }
+
     }
     
     public function updateDropdown(Request $request, $id){
         // update request parameters
+        
     }
 
     // public function editValues(){
