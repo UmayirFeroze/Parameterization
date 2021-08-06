@@ -16,8 +16,8 @@ class ParameterItemsGroupSeeder extends Seeder
     {
         // List of Parameter Item Groups
         $parameterGroups = [
-            "0"=>["parameter_id"=>1, "name"=>"Rent Due Notification"],
-            "1"=>["parameter_id"=>5, "name"=>"Compliance Notification"],
+            "0"=>["parameter_id"=>1, "name"=>"Common"],
+            "1"=>["parameter_id"=>5, "name"=>"Common"],
             "2"=>["parameter_id"=>2, "name"=>"Residential"],
             "3"=>["parameter_id"=>2, "name"=>"Commercial"],
             "4"=>["parameter_id"=>3, "name"=>"Problems"],

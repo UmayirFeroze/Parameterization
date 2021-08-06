@@ -24,7 +24,6 @@ class ParameterController extends Controller
             // return error
             return $error;
         }
-
     }
 
     public function AllParameterListView(){
@@ -42,8 +41,8 @@ class ParameterController extends Controller
     public function getDropdowns(){
         try {
             // get all dropdowns
-        $parameters = Parameter::where('type','dropdown')->with(['ParameterItemsGroup.Dropdowns'])->get();
-        return $parameters;
+            $parameters = Parameter::where('type','dropdown')->with(['ParameterItemsGroup.Dropdowns'])->get(['id','name']);
+            return $parameters;
         } catch (\Exception $error) {
             return $error;
         }

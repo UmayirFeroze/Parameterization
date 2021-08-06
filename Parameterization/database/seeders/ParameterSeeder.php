@@ -16,16 +16,17 @@ class ParameterSeeder extends Seeder
     {
         // List of parameters
         $parameters = [
-            0 => ["name" => "Rent Due Notificaitons", "type" => "values"],
-            1 => ["name" => "Landlord Requirements", "type"=> "dropdown"],
-            2 => ["name" => "Repair and Maintenance", "type" => "selects"],
-            3 => ["name" => "Type of Id", "type" => "dropdown"],
-            4 => ["name" => "Compliance Notifications", "type" => "values"],
+            0 => ["name" => "Rent Due Notificaitons", "description" => "Lorem Ipsum to Pac", "type" => "values"],
+            1 => ["name" => "Landlord Requirements", "description" => "Lorem Ipsum to Pac", "type" => "dropdown"],
+            2 => ["name" => "Repair and Maintenance", "description" => "Lorem Ipsum to Pac", "type" => "selects"],
+            3 => ["name" => "Type of Id", "description" => "Lorem Ipsum to Pac", "type" => "dropdown"],
+            4 => ["name" => "Compliance Notifications", "description" => "Lorem Ipsum to Pac", "type" => "values"],
         ];
 
         foreach ($parameters as $key => $value) {
             Parameter::create([
                 'name' => $value['name'],
+                'description' => $value['description'],
                 'type' => $value['type'],
             ]);
         }
