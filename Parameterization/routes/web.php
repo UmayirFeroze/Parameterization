@@ -26,10 +26,10 @@ Route::get('parameters/dropdowns', [ParameterController::class, 'getDropdowns'] 
 Route::get('parameters/values', [ParameterController::class, 'getValues'] )->name('parameters.values');
 
 
-Route::get('parameters/{id}/editDropdown', [ParameterController::class, 'editDropdown'] )->name('parameters.editDropdown');
-Route::patch('parameters/{id}/updateDropdown', [ParameterController::class, 'updateDropdown'])->name('parameteres.dropdown.update');
+Route::get('parameters/dropdown/{id}/edit', [ParameterController::class, 'editDropdown'] )->name('parameters.editDropdown');
+Route::patch('parameters/dropdown/{id}/update', [ParameterController::class, 'updateDropdown'])->name('parameteres.dropdown.update');
 
-Route::get('parameters/{id}/editValue', [ParameterController::class, 'editValue'] )->name('parameters.editValue');
+Route::get('parameters/value/{id}/edit', [ParameterController::class, 'editValue'] )->name('parameters.value.edit');
 Route::patch('parameters/value/{id}/update', [ParameterController::class, 'updateValue'])->name('parameteres.value.update');
 
 // Route::get('parameters/{id}/edit', [ParameterController::class, 'editSelect'] )->name('parameters.editSelect');

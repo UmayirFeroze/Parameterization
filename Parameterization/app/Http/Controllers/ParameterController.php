@@ -6,8 +6,7 @@ use App\Models\Dropdown;
 use Illuminate\Http\Request;
 
 use App\Models\Parameter;
-use App\Models\Value;
-use GrahamCampbell\ResultType\Success;
+
 
 class ParameterController extends Controller
 {
@@ -156,8 +155,5 @@ class ParameterController extends Controller
         }
 
     }
-
-    
-
 
 }
