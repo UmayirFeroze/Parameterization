@@ -40,11 +40,39 @@ class ParameterController extends Controller
     }
 
     // Get route to use dropdown parameters
-    public function getDropdowns(){
+    public function getDropdowns($dropdowns){
+        // dropdowns is an array of required dropdowns
+        
+        // try {
+        //     // get all dropdowns
+        //     $parameters = Parameter::where('type','dropdown')->with(['ParameterItemsGroup.Dropdowns'])->get(['id','name']);
+        //     return $parameters;
+        // } catch (\Exception $error) {
+        //     return $error;
+        // }
+
         try {
-            // get all dropdowns
-            $parameters = Parameter::where('type','dropdown')->with(['ParameterItemsGroup.Dropdowns'])->get(['id','name']);
-            return $parameters;
+            // Get selected dropdowns
+            $dropdown_list = [];
+
+            foreach ($dropdowns as $key => $dropdown) {      
+                try {
+                    $parameter_id = Parameter::where('name',$dropdown)->first()->id;
+
+                } catch (\ModelNotFoundException $error) {
+                    echo "Could not find Parameter";
+                    return $error;
+                }       
+
+                $dropdownItems = Dropdown::with(['ParameterItemsGroup'])
+                ->whereHas('ParameterItemsGroup', function($query) use($parameter_id){
+                    $query->where('parameter_id',$parameter_id);
+                })->get();
+
+                $dropdown_list[$dropdown] = $dropdownItems;
+            }
+            return $dropdown_list;
+
         } catch (\Exception $error) {
             return $error;
         }
