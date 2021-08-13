@@ -21,6 +21,8 @@ class ParameterSeeder extends Seeder
             2 => ["name" => "Repair and Maintenance", "description" => "Lorem Ipsum to Pac", "type" => "selects"],
             3 => ["name" => "Type of Id", "description" => "Lorem Ipsum to Pac", "type" => "dropdown"],
             4 => ["name" => "Compliance Notifications", "description" => "Lorem Ipsum to Pac", "type" => "values"],
+            
+            5 => ["name" => "Notifications", "description" => "Test Groupings", "type" => "values"],
         ];
 
         foreach ($parameters as $key => $value) {

@@ -34,3 +34,14 @@ Route::patch('parameters/value/{id}/update', [ParameterController::class, 'updat
 
 // Route::get('parameters/{id}/edit', [ParameterController::class, 'editSelect'] )->name('parameters.editSelect');
 // Route::put('parameters/{id}', [ParameterController::class, 'updateValue'])->name('parameteres.select.edit');
+
+        // DB::table('sections')->delete();
+        // $json = File::get("database/data/sections.json");
+        // $data = json_decode($json);
+        // foreach ($data as $obj) {
+        //     Section::create(array(
+        //     'id' => $obj->id,
+        //     'portal_id' => $obj->portal_id,
+        //     'name' => $obj->name
+        //   ));
+        // }

@@ -118,39 +118,44 @@ class ParameterController extends Controller
 
     public function editValue($id){
         try {
-            $parameters = Parameter::with('Values.InputType')->findOrFail($id);
-            return $parameters;
+            $parameters = Parameter::with('ParameterItemsGroup.Values.InputType')->where('type','values')->findOrFail($id);
+            return view('multiauth::parameter.values.edit',$parameters);
         } catch (\Exception $error) {
             return response($error->getMessage());
         }
     }
 
-    public function updateValue(Request $request, $id) {
+    public function updateValue(Request $request, $id) { 
         // get request parameters
-        $requests = $request->request->all();
+        $requests = $request->except('_token','_method');
+        
+        // create array to structure db 
+        $request_array =[]; 
+        
+        foreach ($requests as $key => $request) {
+            $keyNew = str_replace("_"," ",$key);
+            $request_array[$keyNew] = $request;
+        }
 
-        // IMPORTANT: The request should be in the following format [{id: 1,parameter_items_group_id: 1,input_type_id: 2,key: "Notification Period Value",value: "3",disabled: 0, deleted: 0}] 
-
-        try {
-            DB::transaction(function () use ($requests){
-                foreach ($requests as $key => $request) {   
-                    error_log($request['value']);
+        try{
+            DB::transaction(function () use ($request_array, $id){
+                foreach ($request_array as $key => $value) {
                     try {
-                        DB::table('values')
-                            ->where('id',$request['id'])
-                            ->where('parameter_items_group_id',$request['parameter_items_group_id'])
-                            ->update(['value' => $request['value']]);
                         
+                        DB::table('values')
+                            ->where('parameter_items_group_id',$id)
+                            ->where('key', $key)
+                            ->update(['value' => $value]);
                     } catch (\Exception $error) {
                         DB::rollback();
                         echo "Rolling Back...";
                         return $error->getMessage();
-                    }
-                }       
+                    }     
+                }
             });
-        } catch (\Exception $error) {
-            echo "Rolling Back...";
+        }catch(\Exception $error){
             DB::rollback();
+            echo "Rolling Back... 2";
             return $error->getMessage();
         }
 
