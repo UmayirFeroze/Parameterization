@@ -39,8 +39,9 @@ class SelectSeeder extends Seeder
             return $data;
         }
         
-        $path = public_path('selects.csv');
+        $path = public_path('Seeders\selects.csv');
         $records = import_csv($path);
+
         foreach ($records as $key => $record) {
             Select::create([
                 'parameter_items_group_id' => $record['parameter_items_group_id'],
