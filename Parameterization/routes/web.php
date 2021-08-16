@@ -21,6 +21,7 @@ Route::get('/', function () {
 
 
 Route::get('parameters', [ParameterController::class, 'index'] )->name('parameters.index');
+Route::get('parameters/import', [ParameterController::class, 'ImportCSV'] )->name('parameters.import');
 Route::get('parameters/list', [ParameterController::class, 'AllParameterListView'] )->name('parameters.AllParameterListView');
 Route::get('parameters/dropdowns', [ParameterController::class, 'getDropdowns'] )->name('parameters.dropdowns');
 Route::get('parameters/values', [ParameterController::class, 'getValues'] )->name('parameters.values');
