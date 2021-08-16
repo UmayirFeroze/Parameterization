@@ -1,0 +1,5 @@
+"name"        ,"type"     ,"min"  ,"max"     ,"step" ,"row" ,"col"
+"text"        ,"text"     ,NULL   ,NULL      ,NULL   ,NULL  ,NULL 
+"integer"     ,"number"   ,"0.00" ,"9999.00" ,NULL   ,NULL  ,NULL 
+"percentage"  ,"number"   ,"0.00" ,"100.00"  ,"0.20" ,NULL  ,NULL 
+"description" ,"textarea" ,NULL   ,NULL      ,NULL   ,"3"   ,"50" 
