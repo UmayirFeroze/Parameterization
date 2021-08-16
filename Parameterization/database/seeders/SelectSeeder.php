@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Select;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use App\Models\Select;
 
 class SelectSeeder extends Seeder
 {
@@ -14,25 +15,39 @@ class SelectSeeder extends Seeder
      */
     public function run()
     {
-        // List of Selects
-        $selects = [
-            0 => ["parameter_items_group_id" => 5, "sub_group_id" => null, "name" => "Bathroom and Toilet ", "disabled" => false, "deleted" => false],
-            1 => ["parameter_items_group_id" => 5, "sub_group_id" => 1, "name" => "Basin", "disabled" => false, "deleted" => false],
-            2 => ["parameter_items_group_id" => 5, "sub_group_id" => 1, "name" => "Bath", "disabled" => false, "deleted" => false],
-            3 => ["parameter_items_group_id" => 5, "sub_group_id" => 2, "name" => "Basin on Brackets", "disabled" => false, "deleted" => false],
-            4 => ["parameter_items_group_id" => 5, "sub_group_id" => 2, "name" => "Basin not on Brackets", "disabled" => false, "deleted" => false],
-            5 => ["parameter_items_group_id" => 5, "sub_group_id" => 3, "name" => "Pipe Leak", "disabled" => false, "deleted" => false],
-            6 => ["parameter_items_group_id" => 5, "sub_group_id" => 4, "name" => "Basin Blocked", "disabled" => false, "deleted" => false],
-            7 => ["parameter_items_group_id" => 5, "sub_group_id" => 4, "name" => "Other", "disabled" => false, "deleted" => false],
-        ];
 
-        foreach ($selects as $key => $select) {
+        DB::table('selects')->delete();
+
+        function import_csv($filename, $delimiter = ',')
+        {
+            if (!file_exists($filename) || !is_readable($filename))
+                return false;
+
+            $header = null;
+            $data = array();
+            if (($handle = fopen($filename, 'r')) !== false)
+            {
+                while (($row = fgetcsv($handle, 1000, $delimiter)) !== false)
+                {
+                    if (!$header)
+                        $header = $row;
+                    else
+                        $data[] = array_combine($header, $row);
+                }
+                fclose($handle);
+            }
+            return $data;
+        }
+        
+        $path = public_path('selects.csv');
+        $records = import_csv($path);
+        foreach ($records as $key => $record) {
             Select::create([
-                'parameter_items_group_id' => $select['parameter_items_group_id'],
-                'sub_group_id' => $select['sub_group_id'],
-                'name' => $select['name'],
-                'disabled' => $select['disabled'],
-                'deleted' => $select['deleted'],
+                'parameter_items_group_id' => $record['parameter_items_group_id'],
+                'sub_group_id' => $record['sub_group_id']=="null" ? null : $record['sub_group_id'],
+                'name' => $record['name'],
+                'disabled' => array_key_exists('disabled', $record) ? $record['disabled'] : false,
+                'deleted' => array_key_exists('deleted', $record) ? $record['deleted'] : false,
             ]);
         }
     }
