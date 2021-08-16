@@ -9,7 +9,7 @@ class InputType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'type', 'min', 'max', 'step'];
+    protected $fillable = ['name', 'type', 'min', 'max', 'step', 'row', 'col'];
 
     public static $rules = array();
 

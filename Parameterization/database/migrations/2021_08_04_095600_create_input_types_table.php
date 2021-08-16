@@ -20,6 +20,8 @@ class CreateInputTypesTable extends Migration
             $table->float('min')->nullable();
             $table->float('max')->nullable();
             $table->float('step')->nullable();
+            $table->integer('row')->nullable();
+            $table->integer('col')->nullable();
             $table->timestamps();
         });
     }
