@@ -1,7 +1,36 @@
-"name","description","type"
-"Rent Due Notificaitons","Lorem Ipsum to Pac","values"
-"Landlord Requirements","Lorem Ipsum to Pac","dropdown"
-"Repair and Maintenance","Lorem Ipsum to Pac","selects"
-"Type of Id","Lorem Ipsum to Pac","dropdown"
-"Compliance Notifications","Lorem Ipsum to Pac","values"
-"Notifications","Lorem Ipsum to Pac","values"
+Id,name,description,type
+1,Title,,dropdowns
+2,Company Legal Status,,dropdowns
+3,Proof of Address,,dropdowns
+4,Accountant Type,,dropdowns
+5,Landlord Type,,dropdowns
+6,Landlord Requirements,,dropdowns
+7,Type of Id,,dropdowns
+8,Proof of Ownership,,dropdowns
+9,Landlord Introduction,,dropdowns
+10,Rent Frequency,,dropdowns
+11,Rent Payment Schedule,,dropdowns
+12,Property Category,,dropdowns
+13,Current Availability,,dropdowns
+14,Property Type,,dropdowns
+15,Furnishing,,dropdowns
+16,Property Features,,dropdowns
+17,Type of Business,,dropdowns
+18,Bills,,dropdowns
+19,Add More Compliances,,dropdowns
+20,Letting Service,,dropdowns
+21,Price Qualifier,,dropdowns
+22,Landlord Payment Frequency,,dropdowns
+23,Negotiator,,dropdowns
+24,Name of Fee,,dropdowns
+25,Applicant Type,,dropdowns
+26,Looking At,,dropdowns
+27,Budget,,values
+28,Current Availability,,dropdowns
+29,Letting Type,,dropdowns
+30,Location Preference,,values
+31,Reason for moving out of current property,,dropdowns
+32,Employment Status,,dropdowns
+33,Nationality,,dropdowns
+34,Residential Status,,dropdowns
+35,Referee Type,,dropdowns

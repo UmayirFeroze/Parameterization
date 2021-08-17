@@ -1,9 +1,221 @@
-"parameter_items_group_id","name","default","disabled","deleted"
-"3","Residential Sales","1","0","0"      
-"3","Residential Lettings","0","0","0"      
-"4","Commercial Sales","0","0","0"      
-"4","House in Multiple Occupation","0","0","0"      
-"4","Commercial Lettings","0","0","0"      
-"6","Passport","1","0","0"      
-"6","Visa" ,"0","0","0"      
-"6","Driving License","0","0","0"      
+id,parameter_items_group_id,name,default,disabled,deleted
+1,1,Mr,0,0,0
+2,1,Mrs,0,0,0
+3,1,Mx,0,0,0
+4,1,Dr,0,0,0
+5,2,Sole trader,0,0,0
+6,2,Partnership,0,0,0
+7,2,Limited liability partnership,0,0,0
+8,2,Limited company,0,0,0
+9,3,Bank statement,0,0,0
+10,3,Utility bill (Excluding mobile),0,0,0
+11,3,Credit card statement,0,0,0
+12,3,Other,0,0,0
+13,4,Chartered,0,0,0
+14,4,Certified,0,0,0
+15,5,Live-in,0,0,0
+16,5,Live Out,0,0,0
+17,5,Residential LL,0,0,0
+18,5,Overseas LL,0,0,0
+19,5,Company,0,0,0
+20,5,Investor,0,0,0
+21,6,Residential Sales,0,0,0
+22,6,Resdiential Lettings,0,0,0
+23,7,Commercial Sales,0,0,0
+24,7,Commercial Lettings,0,0,0
+25,7,House in Multiple Occupation,0,0,0
+26,8,Passport,0,0,0
+27,8,Driving Licence,0,0,0
+28,8,Visa Permit,0,0,0
+29,9,LL Certificate,0,0,0
+30,9,LL Registry,0,0,0
+31,10,From the web,0,0,0
+32,10,Through networking,0,0,0
+33,10,Walk-in,0,0,0
+34,10,Canvasing,0,0,0
+35,10,Social Media,0,0,0
+36,10,Sign Board,0,0,0
+37,10,Email,0,0,0
+38,10,Other,0,0,0
+39,11,per month,,,
+40,11,per week,,,
+41,11,quarterly,,,
+42,11,per annum,,,
+43,12,Monthly,,,
+44,12,Weekly,,,
+45,12,Quarterly,,,
+46,12,Upfront,,,
+47,12,Custom,,,
+48,13,Sales,,,
+49,13,Lettings,,,
+50,14,Sales,,,
+51,14,Lettings,,,
+52,15,Available,,,
+53,15,Let,,,
+54,15,Let agreed,,,
+55,15,Under offer,,,
+56,15,Reserved,,,
+57,15,Sold,,,
+58,15,Unavailable,,,
+59,16,Terraced house,,,
+60,16,Mid Terraced house,,,
+61,16,Detached,,,
+62,16,Semi-Detached,,,
+63,16,Bungalow,,,
+64,17,New Home,,,
+65,17,Help-to-buy,,,
+66,17,Auction,,,
+67,17,Retirement Home,,,
+68,17,Buying Schemes,,,
+69,18,Studio,,,
+70,18,Flat,,,
+71,18,Masionette,,,
+72,18,Penthouse,,,
+73,19,Farm land,,,
+74,20,Shop,,,
+75,20,Light Industrial,,,
+76,20,Live/work,,,
+77,20,Office,,,
+78,20,Public house,,,
+79,20,Restaurant,,,
+80,20,Shop,,,
+81,20,Studio Space,,,
+82,20,Warehouse,,,
+83,21,Furnished,,,
+84,21,Partly Furnished,,,
+85,21,Unfurnished,,,
+86,21,Furnished or Unfurnished,,,
+87,22,White Goods Only,,,
+88,22,To be negotiated,,,
+89,23,Garden,,,
+90,23,Allocated parking,,,
+91,23,Centralised heating,,,
+92,23,Double glaze windows,,,
+93,23,Ally way,,,
+94,23,Garage,,,
+95,23,Front garden,,,
+96,23,Wheel chair access,,,
+97,23,Off street parking,,,
+98,24,Shop,,,
+99,24,Restaurant,,,
+100,24,Office,,,
+101,24,Bar,,,
+102,24,Clinic,,,
+103,25,Utility,,,
+104,25,Council tax,,,
+105,25,Broadband,,,
+106,26,Gas Safety,,,
+107,26,EPC,,,
+108,26,EICR,,,
+109,26,HMO Licence,,,
+110,26,Fire Safety,,,
+111,26,Asbestos,,,
+112,26,Carbon Monoxide,,,
+113,26,Smoke alarms,,,
+114,26,Building Insurace,,,
+115,26,Fixed wiring,,,
+116,27,Fully Managed,,,
+117,28,Introduction-only,,,
+118,27,Introduction with rent collection,,,
+119,28,Managed no rent collection,,,
+120,29,Offers Invited,,,
+121,29,Offers Over,,,
+122,29,Offers Above,,,
+123,29,Offers in excess of,,,
+124,29,Offers in the region of,,,
+125,29,POA,,,
+126,29,Part Buy Part Rent,,,
+127,29,Price on Application,,,
+128,29,Prices From,,,
+129,29,Reduced,,,
+130,29,Reduces for Quick Sale,,,
+131,29,Sale by Tender,,,
+132,29,Shared Equity,,,
+133,29,Shared Ownership,,,
+134,29,Subject to contract,,,
+135,29,Asking price of,,,
+136,29,Auction guide price of,,,
+137,29,Coming Soon,,,
+138,29,Equity Loan,,,
+139,29,Fixed Price,,,
+140,29,From,,,
+141,29,Guide,,,
+142,29,Guide Price,,,
+143,29,Keen to sell,,,
+144,29,Must be seen,,,
+145,29,OIRO,,,
+146,30,per month,,,
+147,30,per week,,,
+148,30,per annum,,,
+149,30,Custom,,,
+150,31,Admin,,,
+151,31,Office,,,
+152,32,Carpentary,,,
+153,32,Cleaning,,,
+154,32,Council Tax,,,
+155,32,Decorating,,,
+156,32,EPC,,,
+157,32,Electrical Maintenance,,,
+158,32,Gas Safety,,,
+159,32,Glazing,,,
+160,32,Inspection,,,
+161,32,Inventory,,,
+162,32,Locksmith,,,
+163,32,PAT,,,
+164,32,Pest,,,
+165,32,Plumbing,,,
+166,32,Sinking Fund,,,
+167,33,Charge,,,
+168,33,Commision,,,
+169,33,Deposit,,,
+170,33,Fee,,,
+171,33,Holding,,,
+172,33,NRL Tax,,,
+173,33,Rent,,,
+174,33,Rent Cash,,,
+175,33,Services,,,
+176,34,Contract,,,
+177,35,Delivery ,,,
+178,36,Expenses,,,
+179,36,General,,,
+180,36,Rates,,,
+181,36,Utility,,,
+182,36,Water,,,
+183,37,Furniture,,,
+184,38,Marketing,,,
+185,39,Family,,,
+186,39,First time buyer,,,
+187,39,Investor,,,
+188,39,Developer,,,
+189,39,Buy to let,,,
+190,39,Company,,,
+191,40,Residential Sales,,,
+192,40,Resdiential Lettings,,,
+193,41,Commercial Sales,,,
+194,41,Commercial Lettings,,,
+195,41,House in Multiple Occupation,,,
+196,42,Short Let,,,
+197,42,Long Let,,,
+198,42,Student,,,
+199,42,Short Let or Long Let,,,
+200,43,LL Selling Property,,,
+201,43,Moveing to Bigger place,,,
+202,43,Moving to smaller place,,,
+203,43,Issue with previous property,,,
+204,43,CCJ,,,
+205,43,Others,,,
+206,44,Employed,,,
+207,45,Self-employed,,,
+208,46,Out of work,,,
+209,46,Homemaker,,,
+210,46,Student,,,
+211,46,Retired,,,
+212,46,Unable to work,,,
+213,46,Disabled,,,
+214,47,Rented,,,
+215,47,Living with Family or Friends,,,
+216,47,Homeowner,,,
+217,47,Student Halls,,,
+218,47,Other,,,
+219,48,Estate Agent,,,
+220,48,Landlord,,,
