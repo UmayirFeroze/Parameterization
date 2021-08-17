@@ -17,9 +17,11 @@ class SelectSeeder extends Seeder
     public function run()
     {
 
-        DB::table('selects')->delete();
+        $table = 'selects';
         
-        $path = public_path('Seeders\selects.csv');
+        DB::table($table)->delete();
+        
+        $path = public_path('Seeders/'.$table.'.csv');
         $records = Helper::import_csv($path);
 
         foreach ($records as $key => $record) {

@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\ParameterItemsGroup;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
+use App\Helper\Helper;
+use App\Models\ParameterItemsGroup;
 class ParameterItemsGroupSeeder extends Seeder
 {
     /**
@@ -14,22 +16,17 @@ class ParameterItemsGroupSeeder extends Seeder
      */
     public function run()
     {
-        // List of Parameter Item Groups
-        $parameterGroups = [
-            0=>["parameter_id"=>1, "name"=>"Common"],
-            1=>["parameter_id"=>5, "name"=>"Common"],
-            2=>["parameter_id"=>2, "name"=>"Residential"],
-            3=>["parameter_id"=>2, "name"=>"Commercial"],
-            4=>["parameter_id"=>3, "name"=>"Problems"],
-            5=>["parameter_id"=>4, "name"=>"Common"], 
-            
-            6=>["parameter_id"=>6, "name"=>"Test Notifications"], 
-        ];
+        $table = 'parameter_items_groups';
+        
+        DB::table($table)->delete();
+        
+        $path = public_path('Seeders/'.$table.'.csv');
+        $records = Helper::import_csv($path);
 
-        foreach ($parameterGroups as $key => $parameterGroup) {
+        foreach ($records as $key => $record) {
             ParameterItemsGroup::create([
-                'parameter_id' => $parameterGroup['parameter_id'],
-                'name' => $parameterGroup['name'],
+                'parameter_id' => $record['parameter_id'],
+                'name' => $record['name'],
             ]);
         }
     }
