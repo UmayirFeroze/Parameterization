@@ -25,4 +25,9 @@ class Parameter extends Model
     {
         return $this->hasManyThrough(Value::class, ParameterItemsGroup::class, 'parameter_id', 'parameter_items_group_id', 'id', 'id');
     }
+    
+    public function Type(){
+        return $this->belongsTo(Type::class);
+    }
+
 }

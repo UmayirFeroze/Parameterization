@@ -1,36 +1,36 @@
-Id,name,description,type
-1,Title,,dropdowns
-2,Company Legal Status,,dropdowns
-3,Proof of Address,,dropdowns
-4,Accountant Type,,dropdowns
-5,Landlord Type,,dropdowns
-6,Landlord Requirements,,dropdowns
-7,Type of Id,,dropdowns
-8,Proof of Ownership,,dropdowns
-9,Landlord Introduction,,dropdowns
-10,Rent Frequency,,dropdowns
-11,Rent Payment Schedule,,dropdowns
-12,Property Category,,dropdowns
-13,Current Availability,,dropdowns
-14,Property Type,,dropdowns
-15,Furnishing,,dropdowns
-16,Property Features,,dropdowns
-17,Type of Business,,dropdowns
-18,Bills,,dropdowns
-19,Add More Compliances,,dropdowns
-20,Letting Service,,dropdowns
-21,Price Qualifier,,dropdowns
-22,Landlord Payment Frequency,,dropdowns
-23,Negotiator,,dropdowns
-24,Name of Fee,,dropdowns
-25,Applicant Type,,dropdowns
-26,Looking At,,dropdowns
-27,Budget,,values
-28,Current Availability,,dropdowns
-29,Letting Type,,dropdowns
-30,Location Preference,,values
-31,Reason for moving out of current property,,dropdowns
-32,Employment Status,,dropdowns
-33,Nationality,,dropdowns
-34,Residential Status,,dropdowns
-35,Referee Type,,dropdowns
+Id,name,description,type_id
+1,Title,,1
+2,Company Legal Status,,1
+3,Proof of Address,,1
+4,Accountant Type,,1
+5,Landlord Type,,1
+6,Landlord Requirements,,1
+7,Type of Id,,1
+8,Proof of Ownership,,1
+9,Landlord Introduction,,1
+10,Rent Frequency,,1
+11,Rent Payment Schedule,,1
+12,Property Category,,1
+13,Current Availability,,1
+14,Property Type,,1
+15,Furnishing,,1
+16,Property Features,,1
+17,Type of Business,,1
+18,Bills,,1
+19,Add More Compliances,,1
+20,Letting Service,,1
+21,Price Qualifier,,1
+22,Landlord Payment Frequency,,1
+23,Negotiator,,1
+24,Name of Fee,,1
+25,Applicant Type,,1
+26,Looking At,,1
+27,Budget,,2
+28,Current Availability,,1
+29,Letting Type,,1
+30,Location Preference,,2
+31,Reason for moving out of current property,,1
+32,Employment Status,,1
+33,Nationality,,1
+34,Residential Status,,1
+35,Referee Type,,1

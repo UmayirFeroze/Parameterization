@@ -28,7 +28,7 @@ class ParameterSeeder extends Seeder
             Parameter::create([
                 'name' => $record['name'],
                 'description' => $record['description'],
-                'type' => $record['type'],
+                'type_id' => $record['type_id'],
             ]);
         }
     }
